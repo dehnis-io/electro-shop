@@ -1,0 +1,25 @@
+
+## Deployment Commands
+
+```bash
+# Create all script files
+touch jenkins_install.sh docker_install.sh sonarqube_install.sh
+chmod +x jenkins_install.sh docker_install.sh sonarqube_install.sh
+
+# Initialize and deploy
+terraform init
+terraform plan
+terraform apply -auto-approve
+
+After deployment, use terraform output to get:
+
+    Public IPs for all servers
+    SSH commands to connect
+    URLs for Jenkins and SonarQube
+
+# Get all server information
+terraform output
+
+# To destroy everything when done
+terraform destroy -auto-approve
+
