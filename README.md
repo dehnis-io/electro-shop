@@ -1,14 +1,8 @@
-# Free Bootstrap 5 Business Template 
-
+# Electro-shop - a complete DevOps CI/CD project
 - [Demo](https://themewagon.github.io/Electro-Bootstrap/)
 
-#### Download
 
-- [Download from ThemeWagon](https://themewagon.com/themes/electro-bootstrap/)
-
-
-
-# Electro-Shop Infrastructure
+## Electro-Shop Infrastructure
 
 The Terraform configuration deploys a complete CI/CD infrastructure with three servers:
 
@@ -57,3 +51,7 @@ terraform output
 - **Resource-Aware Configuration**: The SonarQube server receives enhanced resources to handle code analysis efficiently
 
 > **Note**: The SonarQube server is provisioned with a larger instance type and increased disk capacity to accommodate its higher resource demands for code quality analysis.
+
+
+
+

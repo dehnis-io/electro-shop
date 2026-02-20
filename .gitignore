@@ -1,0 +1,10 @@
+#terraform state 
+.terraform/ 
+*.tfstate 
+*.tfstate.* 
+
+# Key pem 
+*.pem 
+
+# local env files 
+.env*.local 
