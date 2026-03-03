@@ -6,7 +6,7 @@ sudo apt update
 sudo apt upgrade -y 
 
 # Install JDK 17
-sudo apt install openjdk-17-jre -y 
+sudo apt install -y fontconfig openjdk-21-jre 
 
 # Install Jenkins
 sudo apt install -y ca-certificates curl
@@ -16,8 +16,8 @@ sudo mkdir -p /etc/apt/keyrings
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \ 
   https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key 
 
-echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] \ 
-  https://pkg.jenkins.io/debian-stable binary/" | sudo tee \ 
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \ 
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \ 
   /etc/apt/sources.list.d/jenkins.list > /dev/null 
 
 sudo apt update 

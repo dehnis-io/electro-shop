@@ -56,7 +56,7 @@ resource "aws_instance" "sonarqube_server" {
   instance_type          = var.sonarqube_instance_type
   key_name               = aws_key_pair.generated_key.key_name
   vpc_security_group_ids = [aws_security_group.infra_allow_port_sg.id]
-  user_data              = templatefile("./sonarqube_install.sh", {})
+  user_data = templatefile("./sonarqube_install.sh", {})
 
   tags = {
     Name = "Electro-shop-sonar-server"

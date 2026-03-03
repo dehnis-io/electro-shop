@@ -36,7 +36,7 @@ variable "docker_instance_type" {
 
 variable "sonarqube_instance_type" {
   description = "EC2 instance type for SonarQube server"
-  default     = "c7i-flex.large"   # 2 vCPU, 8 GB RAM - SonarQube needs more memory
+  default     = "m7i-flex.large"   # 2 vCPU, 8 GB RAM - SonarQube needs more memory
 }
 
 # Optional: Enable detailed monitoring
