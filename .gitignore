@@ -2,9 +2,20 @@
 .terraform/ 
 *.tfstate 
 *.tfstate.* 
+crash.log 
+override.tf 
+override.tf.json 
+*_override.tf 
+*_override.tf.json 
+.terraform.lock.hcl 
 
-# Key pem 
+# Keys 
 *.pem 
+*.key 
+*.pub 
+id_rsa 
+id_ecdsa 
+id_ed25519 
 
 # local env files 
 .env*.local 
