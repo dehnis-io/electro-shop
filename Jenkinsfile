@@ -17,9 +17,26 @@ pipeline {
         stage("SonarQube Analysis"){
             steps {
 	           script {
-		        withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
-                        sh "sonar-scanner"
-		        }
+		        withSonarQubeEnv('sonarqube-server') { 
+
+                    sh ''' 
+
+                    docker run --rm \ 
+
+                        -e SONAR_HOST_URL=$SONAR_HOST_URL \ 
+
+                        -e SONAR_LOGIN=$SONAR_AUTH_TOKEN \ 
+
+                        -v "$PWD":/usr/src \ 
+
+                        sonarsource/sonar-scanner-cli 
+
+                    ''' 
+
+                } 
+
+
+
 	           }	
            }
        }
