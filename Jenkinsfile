@@ -4,11 +4,11 @@ pipeline {
     environment {
         // Let Jenkins find the scanner installation
         SCANNER_HOME = tool name: 'sonar-scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-        APP_NAME = "electro-shop=pipeline"
+        APP_NAME = "electro-shop-pipeline"  // Fixed: removed the invalid "="
         RELEASE = "1.0.0"
         DOCKER_USER = "techadvocate247"
         DOCKER_PASS = 'dockerhub'
-        IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
+        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}"  // Simplified concatenation
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
     }
 
@@ -63,17 +63,15 @@ pipeline {
         stage("Build & Push Docker Image") {
             steps {
                 script {
+                    echo "Building Docker image: ${IMAGE_NAME}:${IMAGE_TAG}"
                     docker.withRegistry('',DOCKER_PASS) {
                         docker_image = docker.build "${IMAGE_NAME}"
-                    }
-
-                    docker.withRegistry('',DOCKER_PASS) {
                         docker_image.push("${IMAGE_TAG}")
                         docker_image.push('latest')
                     }
                 }
             }
-       }
+        }
 
 
 
