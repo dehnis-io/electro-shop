@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: electro-shop-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: electro-shop-app
+  template:
+    metadata:
+      labels:
+        app: electro-shop-app
+    spec:
+      containers:
+        - name: register-app
+          image: techadvocate247/electro-shop:1.0.0-15
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
