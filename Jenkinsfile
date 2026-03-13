@@ -33,10 +33,10 @@ pipeline {
                 withSonarQubeEnv('sonarqube-server') { 
                     sh ''' 
                         export SONAR_SCANNER_OPTS="-Xmx512m" 
-                        ${SCANNER_HOME}/bin/sonar-scanner \ 
-                            -Dsonar.projectKey=electro-shop \ 
-                            -Dsonar.projectName="Electro Shop Web App" \ 
-                            -Dsonar.sources=. \ 
+                        ${SCANNER_HOME}/bin/sonar-scanner \
+                            -Dsonar.projectKey=electro-shop \
+                            -Dsonar.projectName="Electro Shop Web App" \
+                            -Dsonar.sources=. \
                             -Dsonar.exclusions=**/node_modules/**,**/*.test.js,lib/owlcarousel/** 
                     ''' 
                 } 

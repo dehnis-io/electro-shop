@@ -23,9 +23,9 @@ pipeline {
             steps { 
                 dir('gitops'){
                     sh """ 
-                    cat deployment.yaml 
-                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml 
-                    cat deployment.yaml 
+                        cat deployment.yaml 
+                        sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml 
+                        cat deployment.yaml 
                     """ 
                 }
             } 
@@ -36,7 +36,7 @@ pipeline {
                 sh """ 
                    git config --global user.name "dehnis-io" 
                    git config --global user.email "macdehnis301@gmail.com" 
-                   git add deployment.yaml 
+                   git add gitops/deployment.yaml 
                    git commit -m "Updated Deployment Manifest" 
                 """ 
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) { 
