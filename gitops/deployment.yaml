@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: electro-shop-app-deployment
+  name: electro-shop:1.0.0-10
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: electro-shop-app
+      app: electro-shop:1.0.0-10
   template:
     metadata:
       labels:
-        app: electro-shop-app
+        app: electro-shop:1.0.0-10
     spec:
       containers:
         - name: register-app
-          image: techadvocate247/electro-shop:1.0.0-15
+          image: techadvocate247/electro-shop:1.0.0-10
           resources:
             limits:
               memory: "256Mi"
