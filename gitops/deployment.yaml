@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: electro-shop:1.0.0-10
+  name: electro-shop-app-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: electro-shop:1.0.0-10
+      app: electro-shop-app
   template:
     metadata:
       labels:
-        app: electro-shop:1.0.0-10
+        app: electro-shop-app
     spec:
       containers:
         - name: register-app
