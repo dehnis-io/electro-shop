@@ -13,7 +13,7 @@ spec:
         app: electro-shop-app
     spec:
       containers:
-        - name: register-app
+        - name: electro-shop-app
           image: techadvocate247/electro-shop:1.0.0-10
           resources:
             limits:
